@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# SUMO临时文件
+*.xml~
+*.sumocfg~
+*.rou.xml~
+*.net.xml~
+
+# SUMO输出文件（保留示例，忽略运行时生成的）
+vehicle_traces.xml
+trip_info.xml
+summary.xml
+*.fcd.xml
+*.emission.xml
+*.battery.xml
+*.chargingstations.xml
+*.overheadwiresegments.xml
+*.substationstations.xml
+*.elecHybrid.xml
+
+# 数据分析输出（可选择保留或忽略）
+# traffic_flow_reports/
+# *.xlsx
+# *.json
+
+# IDE和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 日志文件
+*.log
+
+# 备份文件
+*.bak
+*.backup
+*.tmp
+
+# 环境变量
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# 测试覆盖率
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/ 

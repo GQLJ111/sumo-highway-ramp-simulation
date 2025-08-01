@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-07-31 22:19:10 by Eclipse SUMO netedit Version 1.23.1
+<neteditConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/neteditConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="D:\Eclipse\sumo-highway-ramp\highway.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="D:\Eclipse\sumo-highway-ramp\highway.net.xml"/>
+    </output>
+
+    <processing>
+        <geometry.min-radius.fix.railways value="false"/>
+        <geometry.avoid-overlap value="false"/>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="0"/>
+    </processing>
+
+    <junctions>
+        <no-internal-links value="true"/>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="5"/>
+        <junctions.limit-turn-speed value="5.50"/>
+        <rectangular-lane-cut value="0"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="0"/>
+    </pedestrian>
+
+</neteditConfiguration>
+-->
+
+<net version="1.20" junctionCornerDetail="5" limitTurnSpeed="5.50" avoidOverlap="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="100.00,0.00,900.00,100.00" origBoundary="-10000000000.00,-10000000000.00,10000000000.00,10000000000.00" projParameter="!"/>
+
+    <!-- 高速公路主线段 - 车速35m/s (约126km/h) -->
+    <edge id="M1" from="J3" to="J4" priority="-1">
+        <lane id="M1_0" index="0" speed="35.00" length="192.91" shape="100.00,95.20 285.70,95.20"/>
+        <lane id="M1_1" index="1" speed="35.00" length="192.91" shape="100.00,98.40 285.70,98.40"/>
+    </edge>
+    <edge id="M2" from="J4" to="J5" priority="-1">
+        <lane id="M2_0" index="0" speed="35.00" length="436.08" shape="289.46,92.00 710.54,92.00"/>
+        <lane id="M2_1" index="1" speed="35.00" length="436.08" shape="289.46,95.20 710.54,95.20"/>
+        <lane id="M2_2" index="2" speed="35.00" length="436.08" shape="289.46,98.40 710.54,98.40"/>
+    </edge>
+    <edge id="M3" from="J5" to="J6" priority="-1">
+        <lane id="M3_0" index="0" speed="35.00" length="192.95" shape="714.30,95.20 900.00,95.20"/>
+        <lane id="M3_1" index="1" speed="35.00" length="192.95" shape="714.30,98.40 900.00,98.40"/>
+    </edge>
+    
+    <!-- 匝道段 - 车速25m/s (约90km/h) -->
+    <edge id="offr" from="J5" to="J8" priority="-1">
+        <lane id="offr_0" index="0" speed="25.00" length="208.98" shape="714.10,91.16 899.28,-1.43"/>
+    </edge>
+    <edge id="onr" from="J7" to="J4" priority="-1">
+        <lane id="onr_0" index="0" speed="25.00" length="208.89" shape="100.72,-1.43 285.90,91.16"/>
+    </edge>
+
+    <junction id="J3" type="dead_end" x="100.00" y="100.00" incLanes="" intLanes="" shape="100.00,100.00 100.00,93.60"/>
+    <junction id="J4" type="priority" x="300.00" y="100.00" incLanes="onr_0 M1_0 M1_1" intLanes="" shape="289.46,100.00 289.46,90.40 288.36,90.37 287.98,90.31 287.61,90.19 287.18,90.01 286.61,89.73 285.18,92.59 286.14,93.15 286.32,93.35 286.31,93.49 286.10,93.57 285.70,93.60 285.70,100.00">
+        <request index="0" response="000" foes="000"/>
+        <request index="1" response="000" foes="000"/>
+        <request index="2" response="000" foes="000"/>
+    </junction>
+    <junction id="J5" type="priority" x="700.00" y="100.00" incLanes="M2_0 M2_1 M2_2" intLanes="" shape="714.30,100.00 714.30,93.60 713.69,93.49 713.68,93.35 713.86,93.15 714.24,92.90 714.82,92.59 713.39,89.73 712.39,90.19 712.02,90.31 711.64,90.37 711.17,90.40 710.54,90.40 710.54,100.00">
+        <request index="0" response="000" foes="000"/>
+        <request index="1" response="000" foes="000"/>
+        <request index="2" response="000" foes="000"/>
+    </junction>
+    <junction id="J6" type="dead_end" x="900.00" y="100.00" incLanes="M3_0 M3_1" intLanes="" shape="900.00,93.60 900.00,100.00"/>
+    <junction id="J7" type="dead_end" x="100.00" y="0.00" incLanes="" intLanes="" shape="100.00,0.00 101.43,-2.86"/>
+    <junction id="J8" type="dead_end" x="900.00" y="0.00" incLanes="offr_0" intLanes="" shape="898.57,-2.86 900.00,-0.00"/>
+
+    <connection from="M1" to="M2" fromLane="0" toLane="1" dir="s" state="M"/>
+    <connection from="M1" to="M2" fromLane="1" toLane="2" dir="s" state="M"/>
+    <connection from="M2" to="offr" fromLane="0" toLane="0" dir="R" state="M"/>
+    <connection from="M2" to="M3" fromLane="1" toLane="0" dir="s" state="M"/>
+    <connection from="M2" to="M3" fromLane="2" toLane="1" dir="s" state="M"/>
+    <connection from="onr" to="M2" fromLane="0" toLane="0" dir="s" state="M"/>
+
+</net>

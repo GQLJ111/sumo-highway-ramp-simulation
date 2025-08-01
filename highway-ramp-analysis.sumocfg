@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 数据分析专用配置文件 -->
+
+<sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="highway.net.xml"/>
+        <route-files value="highway-ramp.rou.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="1600"/>
+        <step-length value="0.1"/>
+    </time>
+
+    <processing>
+        <ignore-route-errors value="true"/>
+        <collision.action value="warn"/>
+    </processing>
+
+    <report>
+        <verbose value="false"/>
+        <no-step-log value="true"/>
+        <no-warnings value="true"/>
+    </report>
+
+    <!-- 数据输出配置 -->
+    <output>
+        <!-- 车辆详细信息 -->
+        <tripinfo-output value="trip_info.xml"/>
+        
+        <!-- 车辆轨迹数据（包含位置、速度等） -->
+        <fcd-output value="vehicle_traces.xml"/>
+        
+        <!-- 仿真总结 -->
+        <summary-output value="summary.xml"/>
+    </output>
+
+</sumoConfiguration> 
